@@ -1,11 +1,6 @@
-# ATTENTION: THIS REPO HAS BEEN MOVED TO https://github.com/gioargyr/docker-krrasuite
-All tools are in DockerHub with automated build. You can just pull the images.
-Give extra attention to each tool's README.md file.
-
-
 # KR-SUITE
 
-This KR-suite docker packs all the linked data tools developed by the [KRR&A team](http://kr.di.uoa.gr/) of the [National and Kapodistrian Univeristy of Athens](http://www.di.uoa.gr/). The KR-suite contains the following open source tools:
+This KR-suite docker packs all the linked data tools developed by the [KRR&A team](http://ai.di.uoa.gr/) of the [National and Kapodistrian Univeristy of Athens](http://www.di.uoa.gr/). The KR-suite contains the following open source tools:
 
 * __[Strabon](http://strabon.di.uoa.gr/).__ Strabon is a spatiotemporal RDF store. You can use it to store linked geospatial data that changes over time and pose queries using two popular extensions of SPARQL (GeoSPARQL and stSPARQL). Strabon has been shown experimentally to be the most efficient spatiotemporal RDF store available today.
 * __[GeoTriples](http://geotriples.di.uoa.gr/).__ GeoTriples is a tool for transforming geospatial data from their original formats (e.g., shapefiles or spatially-enabled relational databases) into RDF.
@@ -15,23 +10,28 @@ You need to install docker engine for following any of the instructions below (<
 
 ## Build docker-image from source (Dockerfile)
 
-* Clone <https://github.com/gioargyr/docker-kr-suite>
-* Go to /<file_path_to>/kr-suite and build (terminal of your machine): `[sudo] docker build -t docker-image-name .`
-(Attention to the dot at the end of the command.)
-
-~~## OR~~
-~~alternatively (suggested):~~
-~~* follow the instructions below and use as docker _docker-image-name_ the __gioargyr/kr-suite:1.0.0__ (already built image).~~
+* Clone this repository
+* Go to `/<file_path_to>/kr-suite` and build (terminal of your machine): 
+	
+		[sudo] docker build -t docker-image-name .
 
 ## Create docker-container from docker-image
 
 * A docker-image named _docker-image-name_ is available either locally (previously built), or in DockerHub.
-* Use the docker-image (terminal of your machine): `[sudo] docker run --name docker-container-name -p 9999:8080 -v /<some_local_dir>:/inout docker-image-name`
+* Use the docker-image (terminal of your machine): 
+
+		[sudo] docker run --name docker-container-name -p 9999:8080 -v /<some_local_dir>:/inout docker-image-name
+
 * Now the docker-container _docker-container-name_  should be running.
 
 ## Using the docker-container
 
-* Use (the command line of) the container (terminal of your machine): `[sudo] docker exec -it docker-container-name /bin/bash`
+* In a different terminal run: 
+
+		[sudo] docker exec -it docker-container-name /bin/bash
+
+This will open a terminal inside the container.
+
 * Starting tomcat (terminal of container): `rocket.sh`
 
 **Attention**  When the container is up and running, it provides only a postgres(+postgis) DBMS. In order to make Strabon and Sextant available,
@@ -39,12 +39,12 @@ you should start container's tomcat as described in the previous instruction.
 
 Now all the WEB Services tools (Sextant, Strabon, OnTop Spatial) are available in your machine's port 9999. For example:
 
-<http://localhost:9999/Sextant_v2.0>
+		<http://localhost:9999/Sextant_v2.0>
 
-<http://localhost:9999/Strabon>
+		<http://localhost:9999/Strabon>
 
 * Going through the logs (terminal of your machine): `[sudo] docker logs docker-container-name`
-* You can make local files available in container's dir __/inout__ by copying them in you machine's dir: /<some_local_dir>
+* You can make local files available in container's dir __/inout__ by copying them in you machine's dir: `/<some_local_dir>`
 
 ## General docker tips
 
