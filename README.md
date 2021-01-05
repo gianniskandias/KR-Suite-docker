@@ -20,7 +20,7 @@ You need to install docker engine for following any of the instructions below (<
 * A docker-image named _docker-image-name_ is available either locally (previously built), or in DockerHub.
 * Use the docker-image (terminal of your machine): 
 
-		[sudo] docker run --name docker-container-name -p 9999:8080 -v /<some_local_dir>:/inout docker-image-name
+		[sudo] docker run --name docker-container-name -p 9999:8080 -e LANG=C.UTF-8 -v /<some_local_dir>:/inout docker-image-name
 
 * Now the docker-container _docker-container-name_  should be running.
 
