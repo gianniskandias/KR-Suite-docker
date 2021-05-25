@@ -18,7 +18,7 @@
 # madIS                    #
 ############################
 
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Giorgos Argyriou <gioargyr@gmail.com>
 
 
@@ -62,8 +62,12 @@ CMD ["mvn"]
 
 
 # DOWNLOAD AND INSTALL postgres AND postgis
+#RUN touch /etc/apt/sources.list.d/pgdg.list \
+#  && echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list.d/pgdg.list \
+#  && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+
 RUN touch /etc/apt/sources.list.d/pgdg.list \
- && echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list.d/pgdg.list \
+ && echo "deb http://apt.postgresql.org/pub/repos/apt xenial-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
  && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 
 RUN apt-get update \

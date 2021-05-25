@@ -61,4 +61,4 @@ There you can change the default SPARQL endpoint that is used to store and load 
 ## GeoTriples Usage
 
 * Go to the /bin directory of GeoTriples: `cd /<path_to_geotriples-1.1.6-bin>/bin`
-* Run geotriples-cmd in order to see all available options and examples: `./geotriples-cmd`
+* Run geotriples-all in order to see all available options and examples: `./geotriples-all`
