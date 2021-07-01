@@ -13,14 +13,14 @@ You need to install docker engine for following any of the instructions below (<
 * Clone this repository
 * Go to `/<file_path_to>/kr-suite` and build (terminal of your machine): 
 	
-		[sudo] docker build -t docker-image-name .
+		docker build -t docker-image-name .
 
 ## Create docker-container from docker-image
 
 * A docker-image named _docker-image-name_ is available either locally (previously built), or in DockerHub.
 * Use the docker-image (terminal of your machine): 
 
-		[sudo] docker run --name docker-container-name -p 9999:8080 -e LANG=C.UTF-8 -v /<some_local_dir>:/inout docker-image-name
+		docker run --name docker-container-name -p 9999:8080 -e LANG=C.UTF-8 -v /<some_local_dir>:/inout docker-image-name
 
 * Now the docker-container _docker-container-name_  should be running.
 
@@ -39,9 +39,9 @@ you should start container's tomcat as described in the previous instruction.
 
 Now all the WEB Services tools (Sextant, Strabon, OnTop Spatial) are available in your machine's port 9999. For example:
 
-		<http://localhost:9999/Sextant_v2.0>
+		http://localhost:9999/Sextant_v2.0
 
-		<http://localhost:9999/Strabon>
+		http://localhost:9999/Strabon
 
 * Going through the logs (terminal of your machine): `[sudo] docker logs docker-container-name`
 * You can make local files available in container's dir __/inout__ by copying them in you machine's dir: `/<some_local_dir>`
@@ -50,6 +50,12 @@ Now all the WEB Services tools (Sextant, Strabon, OnTop Spatial) are available i
 
 * Listing all docker containers (terminal of your machine): `[sudo] docker ps -a`
 * Listing docker images (terminal of your machine): `[sudo] docker images`
+* For remote access, the credentials are 
+	
+		username=endpoint
+		password=3ndpo1nt
+		
+To change them, edit the file `tomcat/webapps/*/WEB-INF/credentials.properties`
 
 For more detailed information on docker, visit the [official Docker Documentation](https://docs.docker.com/).
 
