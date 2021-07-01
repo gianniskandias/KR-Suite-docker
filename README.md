@@ -28,7 +28,7 @@ You need to install docker engine for following any of the instructions below (<
 
 * In a different terminal run: 
 
-		[sudo] docker exec -it docker-container-name /bin/bash
+		docker exec -it docker-container-name /bin/bash
 
 This will open a terminal inside the container.
 
