@@ -45,17 +45,17 @@ Now all the WEB Services tools (Sextant, Strabon, OnTop Spatial) are available i
 
 * Going through the logs (terminal of your machine): `[sudo] docker logs docker-container-name`
 * You can make local files available in container's dir __/inout__ by copying them in you machine's dir: `/<some_local_dir>`
-
-## General docker tips
-
-* Listing all docker containers (terminal of your machine): `[sudo] docker ps -a`
-* Listing docker images (terminal of your machine): `[sudo] docker images`
 * For remote access, the credentials are 
 	
 		username=endpoint
 		password=3ndpo1nt
 		
 To change them, edit the file `tomcat/webapps/*/WEB-INF/credentials.properties`
+
+## General docker tips
+
+* Listing all docker containers (terminal of your machine): `[sudo] docker ps -a`
+* Listing docker images (terminal of your machine): `[sudo] docker images`
 
 For more detailed information on docker, visit the [official Docker Documentation](https://docs.docker.com/).
 
